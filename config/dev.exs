@@ -56,3 +56,6 @@ config :currently, Currently.Repo,
   database: "currently_dev",
   hostname: "localhost",
   pool_size: 10
+
+# Slack API Client config
+config :currently, :slack_api, Currently.Slack.API

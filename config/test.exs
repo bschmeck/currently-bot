@@ -17,3 +17,5 @@ config :currently, Currently.Repo,
   database: "currently_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :currently, :slack_api, Currently.Slack.TestAPI
