@@ -5,11 +5,11 @@ defmodule Currently.Users do
   # Client
 
   def start_link do
-    GenServer.start_link(__MODULE__, %{}, [])
+    GenServer.start_link(__MODULE__, %{}, name: __MODULE__)
   end
 
-  def info(pid, user_id) do
-    GenServer.call(pid, {:info, user_id})
+  def info(user_id) do
+    GenServer.call(__MODULE__, {:info, user_id})
   end
 
   # Server
