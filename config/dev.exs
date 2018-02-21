@@ -59,3 +59,6 @@ config :currently, Currently.Repo,
 
 # Slack API Client config
 config :currently, :slack_api, Currently.Slack.API
+
+config :currently, Currently.Slack.API,
+  token: System.get_env("CURRENTLY_TOKEN")
