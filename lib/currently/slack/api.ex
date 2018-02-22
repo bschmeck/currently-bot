@@ -8,4 +8,8 @@ defmodule Currently.Slack.API do
   def initiate_dm(user_id) do
     Slack.Web.Im.open(user_id, %{token: @token})
   end
+
+  def channel_info(channel_id) do
+    Slack.Web.Channels.info(channel_id, %{token: @token})
+  end
 end

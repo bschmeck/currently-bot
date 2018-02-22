@@ -29,4 +29,18 @@ defmodule Currently.Slack.TestAPI do
   end
 
   def initiate_dm(user_id), do: %{"channel" => %{"id" => 0}}
+
+  def channel_info("CHANNEL_ID") do
+    %{"channel" => %{"created" => 1448288930, "creator" => "REAL_USER",
+                    "id" => "CHANNEL_ID", "is_archived" => false, "is_channel" => true,
+                    "is_general" => false, "is_member" => false, "is_mpim" => false,
+                    "is_org_shared" => false, "is_private" => false, "is_shared" => false,
+                    "members" => ["REAL_USER", "USER_ID1"], "name" => "random",
+                    "name_normalized" => "random", "previous_names" => [],
+                    "purpose" => %{"creator" => "", "last_set" => 0, "value" => ""},
+                    "topic" => %{"creator" => "", "last_set" => 0, "value" => ""},
+                    "unlinked" => 0}, "ok" => true,
+      "response_metadata" => %{"warnings" => ["superfluous_charset"]},
+      "warning" => "superfluous_charset"}
+  end
 end
