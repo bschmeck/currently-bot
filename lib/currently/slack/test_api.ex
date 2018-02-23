@@ -28,7 +28,7 @@ defmodule Currently.Slack.TestAPI do
       "warning" => "superfluous_charset"}
   end
 
-  def initiate_dm(user_id), do: %{"channel" => %{"id" => 0}}
+  def initiate_dm(_user_id), do: %{"channel" => %{"id" => 0}}
 
   def channel_info("CHANNEL_ID") do
     %{"channel" => %{"created" => 1448288930, "creator" => "REAL_USER",
