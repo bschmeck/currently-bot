@@ -1,6 +1,12 @@
 defmodule Currently.Users.Impl do
   @slack_api Application.get_env(:currently, :slack_api)
 
+  def all_users do
+    @slack_api.user_list
+    |> Map.get("members")
+    |> Enum.map(fn %{"id" => user_id, "name" => handle, "is_bot" => is_bot} -> {user_id, %{handle: handle, is_bot: is_bot}} end)
+  end
+
   def lookup(users, user_id) do
     if Map.has_key?(users, user_id) do
       Map.get(users, user_id)

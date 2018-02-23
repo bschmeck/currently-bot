@@ -43,4 +43,8 @@ defmodule Currently.Slack.TestAPI do
       "response_metadata" => %{"warnings" => ["superfluous_charset"]},
       "warning" => "superfluous_charset"}
   end
+
+  def user_list do
+    %{"members" => []}
+  end
 end

@@ -1,6 +1,10 @@
 defmodule Currently.Slack.API do
   @token Application.get_env(:currently, Currently.Slack.API)[:token]
 
+  def user_list do
+    Slack.Web.Users.list(%{token: @token})
+  end
+
   def user_info(user_id) do
     Slack.Web.Users.info(user_id, %{token: @token})
   end
