@@ -16,6 +16,10 @@ defmodule Currently.Users do
     GenServer.call(__MODULE__, {:info, user_id})
   end
 
+  def bot_ids do
+    GenServer.call(__MODULE__, {:bot_ids})
+  end
+
   # Server
 
   def init(_state) do
@@ -28,6 +32,12 @@ defmodule Currently.Users do
     state = state |> Impl.store(user_id, user)
 
     {:reply, {:ok, user}, state}
+  end
+
+  def handle_call({:bot_ids}, _from, state) do
+    bot_ids = state |> Impl.bot_ids
+
+    {:reply, {:ok, bot_ids}, state}
   end
 
   defp store_users(users), do: store_users(users, %{})

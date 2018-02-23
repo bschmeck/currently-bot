@@ -15,6 +15,12 @@ defmodule Currently.Users.Impl do
     end
   end
 
+  def bot_ids(users) do
+    users
+    |> Enum.filter(fn {_user_id, user_info} -> user_info[:is_bot] end)
+    |> Enum.map(fn {user_id, _user_info} -> user_id end)
+  end
+
   def store(users, user_id, user) do
     Map.put(users, user_id, user)
   end

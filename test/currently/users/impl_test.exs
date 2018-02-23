@@ -23,4 +23,11 @@ defmodule Currently.Users.ImplTest do
       assert %{handle: "jquser"} = Currently.Users.Impl.lookup(users, user_id)
     end
   end
+
+  describe "returning bot ids" do
+    test "it returns bot ids" do
+      users = %{"USER_ID" => %{is_bot: false}, "BOT_ID" => %{is_bot: true}}
+      assert Currently.Users.Impl.bot_ids(users) == ["BOT_ID"]
+    end
+  end
 end
